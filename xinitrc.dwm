@@ -1,0 +1,7 @@
+#!/bin/bash
+setxkbmap -layout pl
+xbindkeys
+/usr/bin/xscreensaver -no-splash &
+/usr/bin/start-pulseaudio-x11 &
+wmname LG3D
+exec dwm
