@@ -4,4 +4,11 @@ xbindkeys
 /usr/bin/xscreensaver -no-splash &
 /usr/bin/start-pulseaudio-x11 &
 wmname LG3D
+
+xset +fp /usr/share/fonts/local/
+xset fp rehash
+while true; do
+   xsetroot -name "$(date +"%F %R")"
+   sleep 1m    # Update time every minute
+done &
 exec dwm
