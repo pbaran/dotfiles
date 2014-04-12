@@ -8,7 +8,13 @@ wmname LG3D
 xset +fp /usr/share/fonts/local/
 xset fp rehash
 while true; do
-   xsetroot -name "$(date +"%F %R")"
-   sleep 1m    # Update time every minute
+  xsetroot -name "$(echo -e '\u00ea') $(mocp -Q '%song - %artist')\
+    $(echo -e '\u00b8') $(pgrep -c java)\
+    $(echo -e '\u00be') $(free -m |sed -n 's/-\/+\sbuffers\/cache:\s*\([0-9]*\).*/\1/p')M\
+    $(echo -e '\u00b5') $(uptime | sed 's/.*: //; s/,//g')\
+    $(echo -e '\u00cc') $(ls Maildir/INBOX/new/ | wc  -l)\
+    $(date +'%a, %d %b %G')\
+ $(echo -e '\u00b6') $(date +'%H:%M')"
+   sleep 1    # every second
 done &
 exec dwm
